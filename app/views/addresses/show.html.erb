@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Flat no:</strong>
+  <%= @address.Flat_no %>
+</p>
+
+<p>
+  <strong>Building name:</strong>
+  <%= @address.building_name %>
+</p>
+
+<p>
+  <strong>Pincode:</strong>
+  <%= @address.pincode %>
+</p>
+
+<p>
+  <strong>Residence type:</strong>
+  <%= @address.residence_type %>
+</p>
+
+<%= link_to 'Edit', edit_address_path(@address) %> |
+<%= link_to 'Back', addresses_path %>

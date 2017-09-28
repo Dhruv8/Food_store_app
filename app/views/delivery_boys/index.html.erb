@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Delivery Boys</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Order</th>
+      <th>Locality</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @delivery_boys.each do |delivery_boy| %>
+      <tr>
+        <td><%= delivery_boy.name %></td>
+        <td><%= delivery_boy.order_id %></td>
+        <td><%= delivery_boy.locality_id %></td>
+        <td><%= link_to 'Show', delivery_boy %></td>
+        <td><%= link_to 'Edit', edit_delivery_boy_path(delivery_boy) %></td>
+        <td><%= link_to 'Destroy', delivery_boy, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Delivery Boy', new_delivery_boy_path %>

@@ -1,0 +1,8 @@
+<%= form_for(@order_payment) do |f| %>
+	<%= f.label :select_mode_of_payment %>
+	<%= f.select :name, options_for_select(PaymentMethod.all.pluck(:name))%>
+    <%= f.label :time_slot %>
+    <%= f.select :time_slot, options_for_select(TimeSlot.all.pluck(:name))%>
+	<%= f.hidden_field :order_id ,value: @order_id%>
+	<%= f.submit('Pay')%>
+<% end %>    

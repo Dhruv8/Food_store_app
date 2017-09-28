@@ -1,0 +1,37 @@
+<%= form_with(model: address, local: true) do |form| %>
+  <% if address.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(address.errors.count, "error") %> prohibited this address from being saved:</h2>
+
+      <ul>
+      <% address.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+    <%=form.hidden_field :order_id ,value: params[:order_id] %>
+  <div class="field">
+    <%= form.label :Flat_no %>
+    <%= form.text_field :Flat_no, id: :address_Flat_no %>
+  </div>
+
+  <div class="field">
+    <%= form.label :building_name %>
+    <%= form.text_field :building_name, id: :address_building_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :pincode %>
+    <%= form.text_field :pincode, id: :address_pincode %>
+  </div>
+
+  <div class="field">
+    <%= form.label :residence_type %>
+    <%= form.select :residence_type, options_for_select(['Work', 'Home', 'Other']), {}, :id => "address_residence_type" %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit("Send Order on this Address") %>
+  </div>
+<% end %>

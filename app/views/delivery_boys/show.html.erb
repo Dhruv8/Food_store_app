@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @delivery_boy.name %>
+</p>
+
+<p>
+  <strong>Locality:</strong>
+  <%= @locality %>
+</p>
+
+<p>
+  <strong>TimeSlot:</strong>
+  <%= @time %>
+</p>
+
+<%= link_to 'Edit', edit_delivery_boy_path(@delivery_boy) %> |
+<%= link_to 'Back', delivery_boys_path %>
