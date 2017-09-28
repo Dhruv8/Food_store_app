@@ -15,7 +15,11 @@ class OrdersController < ApplicationController
   # GET /orders/new
   def new
     @order = Order.new
-    @ref_token = Order.last.id + rand(9999999)
+    if Order.last.present?
+      @ref_token = Order.last.id + rand(9999999)
+     else
+      @ref_token = rand(9999999) 
+    end
   end
 
   # GET /orders/1/edit
