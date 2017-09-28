@@ -25,5 +25,7 @@ test:
   database: food_store_test
 
 production:
-  <<: *default
+  adapter: postgresql
   database: food_store_production
+  pool: 5
+  timeout: 5000
