@@ -38,7 +38,6 @@ class PaymentMethodsController < ApplicationController
       end  
     else
       respond_to do |format|
-        byebug
         if @payment_method.save
           format.html { redirect_to @payment_method, notice: 'Payment method was successfully created.' }
           format.json { render :show, status: :created, location: @payment_method }
