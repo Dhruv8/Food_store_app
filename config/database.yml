@@ -27,5 +27,8 @@ test:
 production:
   adapter: postgresql
   database: food_store_production
+  host: localhost
+  username:
+  password:
   pool: 5
   timeout: 5000
