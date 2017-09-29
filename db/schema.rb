@@ -19,7 +19,6 @@ ActiveRecord::Schema.define(version: 20170928150140) do
     t.string "residence_type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "residence_id"
     t.integer "location_id"
     t.string "location_type"
   end
