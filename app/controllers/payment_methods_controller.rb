@@ -26,15 +26,17 @@ class PaymentMethodsController < ApplicationController
   def create
     @payment_method = PaymentMethod.new(payment_method_params)
     if @payment_method.order_id.present?
-      byebug
-      time_slot = TimeSlot.find_by_name(@payment_method.time_slot)
-
-      order = Order.find(@payment_method.order_id.to_i) if @payment_method.order_id.present?
-      payment = PaymentMethod.find_by_name(@payment_method.name)
-      payment.orders << order
-      @time = Time.now
+      @time_slot = TimeSlot.find_by_name(@payment_method.time_slot)
+      @order = Order.find(@payment_method.order_id.to_i) if @payment_method.order_id.present?
+      @payment = PaymentMethod.find_by_name(@payment_method.name)
+      @payment.orders << @order
+      @recieve_time = Time.now
+      @item = @order.food_items.last.name
+      @price = @order.food_items.last.price
+      @user_email = @order.user.email
+      @address = @order.address
       respond_to do |format|
-        format.html { redirect_to order_summary_path(order_id:  @payment_method.order_id ), notice: 'Payment successfully recieved, Enjoy your Food!!.' }
+        format.html { redirect_to order_summary_path(order_id:  @payment_method.order_id, time_slot: @time_slot ), notice: 'Payment successfully recieved, Enjoy your Food!!.' }
       end  
     else
       respond_to do |format|

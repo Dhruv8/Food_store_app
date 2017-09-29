@@ -20,6 +20,7 @@ class OrdersController < ApplicationController
      else
       @ref_token = rand(9999999) 
     end
+    session[:ref_id] = @ref_token
   end
 
   # GET /orders/1/edit
